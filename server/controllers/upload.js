@@ -256,7 +256,7 @@ async function extractIpaIcon(filename, guid, team) {
     var iconSuffix = "/" + guid + "_i.png"
     createFolderIfNeeded(path.join(uploadDir, iconRelatePath))
     if (stdout.indexOf('not an -iphone crushed PNG file') != -1) {
-        await fs.renameSync(tmpOut, path.join(iconRelatePath, iconSuffix))
+        await fs.renameSync(tmpOut, path.join(uploadDir, iconRelatePath, iconSuffix))
         return { 'success': true, 'fileName': iconRelatePath + iconSuffix }
     }
     await fs.unlinkSync(tmpOut)
